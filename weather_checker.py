@@ -1,9 +1,9 @@
 import click
 
 @click.command()
-@click.argument('zipcode')
-def main(zipcode):
-    click.echo("The weather in {} is super fly!".format(zipcode))
+@click.argument('city_name')
+def main(city_name):
+    click.echo("The weather in {} is super fly!".format(city_name))
 
 if __name__ == "__main__":
     main()
