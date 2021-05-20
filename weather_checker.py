@@ -1,10 +1,9 @@
 import click
 
 @click.command()
-@click.argument('name')
-@click.option('--greeting', '-g')
-def main(name, greeting):
-    click.echo("{}, {}".format(greeting, name))
+@click.argument('zipcode')
+def main(zipcode):
+    click.echo("The weather in {} is super fly!".format(zipcode))
 
 if __name__ == "__main__":
     main()
