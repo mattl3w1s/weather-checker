@@ -13,12 +13,20 @@ def create_url_from_city_name(city_name):
     return city_url
 
 def get_weather_from_city_name(city_name):
-    url = create_url_from_city_name(city_name)
-    weather_request = requests.get(url)
-    return weather_request.json()
+    try:
+        url = create_url_from_city_name(city_name)
+        weather_request = requests.get(url)
+        return weather_request.json()
+    except:
+        print("Access to OpenWeather currently unavailable")
+        quit()
 
 def get_pretty_weather(weather):
-    city = weather['name']
+    try:
+        city = weather['name']
+    except:
+        print("Invalid City")
+        quit()
     temperature = (weather['main']['temp']-273.15)*(9/5)+32
     weather_conditions = weather['weather'][0]['description']
     pretty_weather = {'City':city,'Temperature':temperature,'Weather_Conditions':weather_conditions}
